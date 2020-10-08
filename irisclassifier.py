@@ -16,12 +16,7 @@ class IrisClassifier:
         self.x_test = None
         self.y_train = None
         self.y_test = None
-
-        self.model = Pipeline([
-            ('scaler', StandardScaler()),
-            ('pca', decomposition.PCA()),
-            ('classifier', MLPClassifier(max_iter=epochs))
-        ])
+        self.model = MLPClassifier(max_iter=epochs)
 
     def ingestion(self):
         self.data = load_iris()
