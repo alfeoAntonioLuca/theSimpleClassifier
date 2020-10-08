@@ -1,13 +1,14 @@
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import SGDClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import plot_confusion_matrix
 import matplotlib.pyplot as plt
 
 
+
 class IrisClassifier:
 
-    def __init__(self, iterations=200):
+    def __init__(self, iterations=500):
         self.data = None
         self.x_train = None
         self.x_test = None
@@ -23,7 +24,7 @@ class IrisClassifier:
         self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(self.data['data'], self.data['target'])
 
     def train(self):
-        self.trained_model = SGDClassifier(max_iter=self.epochs, random_state=1).fit(self.x_train, self.y_train)
+        self.trained_model = MLPClassifier(max_iter=self.epochs, random_state=1).fit(self.x_train, self.y_train)
 
     def evaluation(self):
         score = self.trained_model.score(self.x_test, self.y_test)
