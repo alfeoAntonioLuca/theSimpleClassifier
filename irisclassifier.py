@@ -1,3 +1,4 @@
+from sklearn import decomposition
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
@@ -18,6 +19,7 @@ class IrisClassifier:
 
         self.model = Pipeline([
             ('scaler', StandardScaler()),
+            ('pca', decomposition.PCA()),
             ('classifier', MLPClassifier(max_iter=epochs))
         ])
 
@@ -33,7 +35,7 @@ class IrisClassifier:
     def evaluation(self):
         score = self.model.score(self.x_test, self.y_test)
         f = open("report.txt", "a")
-        f.write('Test score: ' + str(score))
+        f.write('Test score: ' + str(score) + ' | ')
         plot_confusion_matrix(self.model, self.x_test, self.y_test)
         plt.savefig('report.png')
         return score
