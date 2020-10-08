@@ -1,8 +1,5 @@
-from sklearn import decomposition
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import plot_confusion_matrix
 import matplotlib.pyplot as plt
@@ -16,7 +13,7 @@ class IrisClassifier:
         self.x_test = None
         self.y_train = None
         self.y_test = None
-        self.model = MLPClassifier(max_iter=epochs)
+        self.model = MLPClassifier(max_iter=epochs, random_state=1)
 
     def ingestion(self):
         self.data = load_iris()

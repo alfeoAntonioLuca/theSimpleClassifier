@@ -2,7 +2,7 @@ from typing import Set
 import irisclassifier
 import pytest
 
-epochs: Set[int] = {2, 5, 10, 25, 50, 100}
+epochs: Set[int] = {5, 10, 25, 50, 100, 200}
 
 
 @pytest.mark.parametrize('epoch', epochs)
