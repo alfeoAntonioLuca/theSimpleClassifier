@@ -7,7 +7,7 @@ epochs: Set[int] = {50, 100, 200, 300, 500}
 
 @pytest.mark.parametrize('epoch', epochs)
 def test_evaluations(epoch):
-    i = irisclassifier.IrisClassifier(epoch)
+    i = irisclassifier.IrisClassifier()
     i.ingestion()
     i.segregation()
     i.train()
