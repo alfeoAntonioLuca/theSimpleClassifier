@@ -6,6 +6,6 @@ epochs: Set[int] = {5, 10, 25, 50, 100, 200}
 
 
 @pytest.mark.parametrize('epoch', epochs)
-def test_evaluation(epoch):
+def test_evaluations(epoch):
     i = irisclassifier.IrisClassifier(epoch)
     assert i.evaluation() > 0.75
